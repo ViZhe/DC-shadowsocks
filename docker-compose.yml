@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  shadowsocks:
+    image: shadowsocks/shadowsocks-libev:latest
+    restart: always
+    environment:
+      - TZ=Europe/Moscow
+      - PASSWORD=TOO_HEAVY_PASSWORD_TO_BRUTE_FORCE
+      - METHOD=aes-256-cfb
+      - ARGS=--fast-open
+    ports:
+      - 28388:8388/tcp
+      - 28388:8388/udp
